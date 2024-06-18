@@ -1,0 +1,112 @@
+@mixin flex-prop($content, $direction) {
+  display: flex;
+  justify-content: $content;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+}
+
+//---------------------------------
+
+@mixin card-background($color1, $color2, $image) {
+  @if $image ==""{background: linear-gradient(to right bottom, $color1, $color2);}
+  @else{
+    background: linear-gradient(to right bottom, $color1, $color2), url($image);
+  }
+  background-position: top;
+  background-size: cover;
+}
+
+@mixin card-face() {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  backface-visibility: hidden;
+  background-position: top;
+  background-size: cover;
+}
+
+@mixin card-heading($colour) {
+  background-color: darken($color: $colour, $amount: 3%);
+  text-align: right;
+  color: white;
+  width: fit-content;
+  transform: translateY(420%);
+  margin-left: 55%;
+}
+
+//-----------------------------------
+
+@mixin animation($name, $duration) {
+  animation-name: $name;
+  animation-duration: $duration;
+}
+
+@keyframes fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  80% {
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  80% {
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  80% {
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes btn-blink {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+    background-color: #ffffffe0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+    transform: translateY(1.2);
+    background-color: #ffffffe0;
+  }
+}
+
+@keyframes btn-unblink {
+  0% {
+    opacity: 0.2;
+    transform: scale(1.5);
+    background-color: #ffffffe0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+    background-color: #ffffffe0;
+  }
+}

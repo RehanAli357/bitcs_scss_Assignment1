@@ -1,0 +1,77 @@
+@import 'mixins';
+
+.section3{
+    .pop-up-card-body{
+        position: absolute;
+        padding: 10%;
+        height: 70vh;
+        @include flex-prop(center,column);
+        background-color: rgba(0, 0, 0, 0.87);
+        z-index: 1;
+        display: none;
+        .pop-up-card{
+            width: 80%;
+            background-color: white;
+            margin: auto;
+            @include flex-prop(space-between,row);
+            .pop-up-card-closebtn{
+                position: relative;
+                width: 100%;
+                button{
+                    position: absolute;
+                    left: 95%;
+                    top:10px;
+                    color: gray;
+                    font-weight: bold;
+                    font-size: 20px;
+                    &:hover{
+                        color: $dark-green;
+                    }
+                }
+            }
+            .pop-up-card-img{
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+
+                img{
+                    width: 280px;
+                }
+            }
+            .pop-up-card-content{
+                width: 65%;
+                padding-left: 5%;
+                h1{
+                    color: $dark-green;
+                    margin-bottom: 5%;                    
+                }
+                h2{
+                    font-size: 13.5px;
+                    width: 100%;
+                    color: gray;
+                    margin-bottom: 5%;
+                }
+                .pop-up-card-content-para{
+                   @include flex-prop(space-between,row);
+                    p{
+                        margin-left: 10px;
+                        width: 45%;
+                        text-align: left;
+                        &:nth-child(2){
+                            margin-right: 5%;
+                        }
+                    }
+                }
+                .pop-up-card-content-btn{
+                    width: 100%;
+                    margin-top: 5%;
+                    button{
+                        background-color: $medium-green;
+                        padding: 10px 20px;
+                        color: aliceblue;
+                    }
+                }
+            }
+        }
+    }
+}

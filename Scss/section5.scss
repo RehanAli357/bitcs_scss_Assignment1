@@ -1,0 +1,179 @@
+@import "mixins";
+@import "variables";
+
+.section5 {
+  width: 100%;
+  @include card-background($light-green, $dark-green, "");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .section5-contact {
+    margin: 15%;
+    width: 70%;
+    background-image: url("../image/nat-1-large.jpg");
+    background-position: top;
+    background-size: cover;
+
+    .section5-contact-data {
+      height: 100%;
+      clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+      background-color: rgba(240, 248, 255, 0.792);
+      width: 50%;
+      padding: 5% 0;
+
+      h1 {
+        padding-top: 10%;
+        color: $dark-green;
+        padding-left: 5%;
+      }
+
+      form {
+        margin-top: 5%;
+        @include flex-prop(center, column);
+
+        .section5-contact-data-input {
+          position: relative;
+          width: 70%;
+          margin: 5% 0;
+          p {
+            color: gray;
+            font-size: 12px;
+            margin-top: 3%;
+            margin-left: -10%;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+          }
+          input {
+            border: none;
+            width: 100%;
+            margin-left: -15%;
+            padding: 10px 20px;
+            background-color: rgba(240, 248, 255, 0.822);
+            outline: none;
+            &:focus + p {
+              top: 93%;
+              transition: 0.3s;
+            }
+            &:focus {
+              border-bottom: 5px solid $dark-green;
+              transition: 0.3s;
+            }
+          }
+        }
+
+        .section5-contact-data-radio {
+          width: 100%;
+          margin: 5% 0;
+          display: flex;
+          align-items: center;
+          input[type="radio"] {
+            position: relative;
+            left: 10px;
+            z-index: 1;
+            opacity: 0;
+            top: 5px;
+            left: 22px;
+            cursor: pointer;
+          }
+
+          label {
+            position: relative;
+            padding-left: 35px;
+            margin-right: 15px;
+            color: gray;
+            font-size: 16px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 20px;
+              height: 20px;
+              border: 5px solid $dark-green;
+              border-radius: 50%;
+              background-color: white;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              left: 10px;
+              top: 10px;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background-color: $dark-green;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+            }
+          }
+
+          input[type="radio"]:checked + label::after {
+            opacity: 1;
+          }
+        }
+      }
+      form {
+        .section5-contact-data-btn {
+          width: 100%;
+          button {
+            margin-top: 5%;
+            margin-left: 5%;
+            background-color: $dark-green;
+            @include flex-prop(center, row);
+            padding: 5px 10px;
+            color: aliceblue;
+            gap: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//-----------------------------------------
+
+@media (max-width: 768px) {
+  .section5 {
+    .section5-contact {
+      .section5-contact-data {
+        width: 100%;
+
+        h1 {
+          font-size: 20px;
+        }
+        .section5-contact-data-radio {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 426px) {
+  .section5 {
+    .section5-contact {
+      width: 290px;
+      .section5-contact-data {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        .section5-contact-data-radio {
+          label {
+            font-size: 10px !important;
+          }
+        }
+      }
+      .section5-contact-data-btn{
+        @include flex-prop(center,row);
+        button{
+          font-size: 10px;
+          img{
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+}
